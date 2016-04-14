@@ -1,7 +1,5 @@
 'use strict';
 
-let Q = require('q');
-
 let timer = function (seconds) {
   return new Promise(function (resolve, reject) {
     setTimeout(function () {
@@ -15,14 +13,8 @@ let timer = function (seconds) {
   });
 };
 
-timer(1)
-  .then(function (success) {
-    console.log(`Success after ${success} seconds.`);
-  })
-  .catch(function(error) {
-    console.log(`It failed after: ${error} seconds.`);
-  });
-
-
-
-
+timer(1).then(function (success) {
+  console.log(`Success after ${success} seconds.`);
+}, function(error) {
+  console.log(`It failed after: ${error} seconds.`);
+});
